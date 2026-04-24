@@ -1,4 +1,4 @@
-import { Car, Building2, Gift } from 'lucide-react';
+import { Gift } from 'lucide-react';
 
 export default function TravelGifts() {
   return (
