@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500;1,600&family=Passions+Conflict&display=swap');
 
 :root {
   /* Colors */
@@ -20,6 +21,8 @@
   --font-cinzel: 'Cinzel', serif;
   --font-playfair: 'Playfair Display', serif;
   --font-inter: 'Inter', sans-serif;
+  --font-cormorant: 'Cormorant Garamond', serif;
+  --font-passions: 'Passions Conflict', cursive;
 }
 
 * {

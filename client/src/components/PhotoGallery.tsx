@@ -44,7 +44,7 @@ export default function PhotoGallery() {
       </div>
 
       <div className="flex-center fade-up" style={{ flexDirection: 'column', marginTop: '20px' }}>
-        <h2 style={{ fontFamily: 'var(--font-playfair)', fontStyle: 'italic', fontSize: '2rem', color: 'var(--gold-primary)' }}>
+        <h2 style={{ fontFamily: 'var(--font-passions)', fontSize: '3.5rem', color: 'rgb(200, 155, 65)', fontWeight: 400, lineHeight: 1.2 }}>
           Counting Down to Forever
         </h2>
         <div className="line-separator" style={{ width: '200px', margin: '20px 0 40px' }}><div className="diamond"></div></div>

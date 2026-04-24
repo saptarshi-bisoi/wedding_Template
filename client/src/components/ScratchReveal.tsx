@@ -137,7 +137,7 @@ export default function ScratchReveal() {
         <div className="diamond" style={{ width: '4px', height: '4px' }}></div>
       </div>
       
-      <p className="invitation-quote">
+      <p className="invitation-quote" style={{ fontFamily: 'var(--font-cormorant)', fontStyle: 'italic', fontSize: '1.5rem', lineHeight: '1.8', color: 'rgb(235, 231, 224)' }}>
         With hearts full of love and joy, we warmly invite you to share in the celebration of our union. 
         Your presence would mean the world to us as we begin this beautiful journey together.
       </p>
@@ -148,7 +148,7 @@ export default function ScratchReveal() {
         <div className="diamond" style={{ width: '4px', height: '4px' }}></div>
       </div>
 
-      <h2 style={{ fontFamily: 'var(--font-playfair)', fontStyle: 'italic', fontSize: '2rem', marginBottom: '20px' }}>
+      <h2 style={{ fontFamily: 'var(--font-passions)', fontSize: '3.5rem', marginBottom: '20px', color: 'rgb(200, 155, 65)', fontWeight: 400, lineHeight: 1.2 }}>
         {scratched ? 'Our forever begins' : 'Scratch to Reveal'}
       </h2>
       <div className="line-separator" style={{ marginBottom: '40px' }}><div className="diamond"></div></div>
