@@ -19,8 +19,6 @@ export default function CustomCursor() {
     let mouseY = window.innerHeight / 2;
     let dotX = mouseX;
     let dotY = mouseY;
-    let ringX = mouseX;
-    let ringY = mouseY;
 
     const onMouseMove = (e: MouseEvent) => {
       mouseX = e.clientX;
