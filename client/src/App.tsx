@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import Lenis from 'lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -12,6 +12,7 @@ import DressCode from './components/DressCode';
 import TravelGifts from './components/TravelGifts';
 import VenueMap from './components/VenueMap';
 import AudioPlayer from './components/AudioPlayer';
+import CustomCursor from './components/CustomCursor';
 
 import './App.css';
 
@@ -19,12 +20,24 @@ gsap.registerPlugin(ScrollTrigger);
 
 function App() {
   const [isEntered, setIsEntered] = useState(false);
+  const letterboxTopRef = useRef<HTMLDivElement>(null);
+  const letterboxBottomRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!isEntered) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
+      
+      // Animate cinematic letterbox out when entered
+      if (letterboxTopRef.current && letterboxBottomRef.current) {
+        gsap.to([letterboxTopRef.current, letterboxBottomRef.current], {
+          scaleY: 0,
+          duration: 1.5,
+          ease: "power3.inOut",
+          delay: 0.5
+        });
+      }
     }
   }, [isEntered]);
 
@@ -72,6 +85,20 @@ function App() {
 
   return (
     <>
+      <CustomCursor />
+      
+      {/* Noise Texture Overlay */}
+      <div className="noise-overlay"></div>
+      <svg style={{ display: 'none' }}>
+        <filter id="noiseFilter">
+          <feTurbulence type="fractalNoise" baseFrequency="0.6" numOctaves="3" stitchTiles="stitch" />
+        </filter>
+      </svg>
+
+      {/* Cinematic Letterbox */}
+      <div ref={letterboxTopRef} className="cinematic-letterbox top"></div>
+      <div ref={letterboxBottomRef} className="cinematic-letterbox bottom"></div>
+
       <AudioPlayer play={isEntered} />
       {!isEntered && <WelcomeGate onEnter={() => setIsEntered(true)} />}
       <main className="main-content">
