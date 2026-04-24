@@ -12,6 +12,7 @@ import DressCode from './components/DressCode';
 import TravelGifts from './components/TravelGifts';
 import VenueMap from './components/VenueMap';
 import AudioPlayer from './components/AudioPlayer';
+import WeddingClosing from './components/WeddingClosing';
 import CustomCursor from './components/CustomCursor';
 
 import './App.css';
@@ -109,6 +110,7 @@ function App() {
         <TravelGifts />
         <PhotoGallery />
         <VenueMap />
+        <WeddingClosing />
       </main>
     </>
   );
