@@ -12,20 +12,20 @@ export default function VenueMap() {
       </div>
 
       <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-        <h3 style={{ fontSize: '1.5rem', marginBottom: '10px', color: '#fff' }}>The Grand Palace</h3>
-        <p style={{ color: 'var(--text-secondary)' }}>123 Royal Avenue, London</p>
+        <h3 style={{ fontSize: '1.5rem', marginBottom: '10px', color: '#fff' }}>Mementos by ITC Hotels, Ekaaya Udaipur</h3>
+        <p style={{ color: 'var(--text-secondary)' }}>Udaipur, Rajasthan, India</p>
       </div>
 
       <div className="map-wrapper fade-up">
         <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d39736.93299778211!2d-0.127592!3d51.5072178!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604ce176ac979%3A0x42af85654e23a0b4!2sThe%20Grand!5e0!3m2!1sen!2sus!4v1689269785834!5m2!1sen!2sus" 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14489.501220367883!2d73.68855228225743!3d24.7825991308444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3968084aea666db9%3A0x90ff0f546ba69fcc!2sMementos%20by%20ITC%20Hotels%2C%20Ekaaya%20Udaipur!5e0!3m2!1sen!2sin!4v1777053650710!5m2!1sen!2sin"
           width="100%" 
           height="100%" 
           style={{ border: 0 }} 
           allowFullScreen 
           loading="lazy" 
           referrerPolicy="no-referrer-when-downgrade"
-          title="Google Maps Location for The Grand Palace"
+          title="Google Maps Location for Mementos by ITC Hotels, Ekaaya Udaipur"
         ></iframe>
       </div>
 
@@ -84,7 +84,7 @@ export default function VenueMap() {
       </div>
 
       <a
-        href="https://www.google.com/maps/search/?api=1&query=The+Grand+Palace+London"
+        href="https://maps.app.goo.gl/TnDmXQabEbLhL11G9"
         target="_blank"
         rel="noopener noreferrer"
         className="venue-map-btn fade-up"
