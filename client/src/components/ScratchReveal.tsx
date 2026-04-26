@@ -112,9 +112,42 @@ export default function ScratchReveal() {
     if (!scratched) {
       setScratched(true);
       
-      const duration = 3 * 1000;
+      // Initial burst from center
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { x: 0.5, y: 0.5 },
+        startVelocity: 45,
+        colors: ['#d4af37', '#e2c275', '#ffd700', '#ffffff'],
+        gravity: 0.8,
+        scalar: 1.2
+      });
+
+      // Side bursts for party effect
+      setTimeout(() => {
+        confetti({
+          particleCount: 60,
+          spread: 100,
+          origin: { x: 0.2, y: 0.3 },
+          startVelocity: 35,
+          colors: ['#d4af37', '#e2c275', '#ffd700'],
+          gravity: 0.8
+        });
+
+        confetti({
+          particleCount: 60,
+          spread: 100,
+          origin: { x: 0.8, y: 0.3 },
+          startVelocity: 35,
+          colors: ['#d4af37', '#e2c275', '#ffd700'],
+          gravity: 0.8
+        });
+      }, 100);
+
+      // Sustained shower effect
+      const duration = 2.5 * 1000;
       const animationEnd = Date.now() + duration;
-      const defaults = { startVelocity: 20, spread: 360, ticks: 100, zIndex: 0, colors: ['#d4af37', '#e2c275', '#ffffff'] };
+      const defaults = { startVelocity: 25, spread: 360, ticks: 80, zIndex: 0, colors: ['#d4af37', '#e2c275', '#ffffff', '#ffd700'] };
 
       const interval: any = setInterval(function() {
         const timeLeft = animationEnd - Date.now();
@@ -123,9 +156,9 @@ export default function ScratchReveal() {
           return clearInterval(interval);
         }
 
-        const particleCount = 40 * (timeLeft / duration);
+        const particleCount = 30 * (timeLeft / duration);
         confetti(Object.assign({}, defaults, { particleCount, origin: { x: Math.random(), y: Math.random() - 0.2 } }));
-      }, 250);
+      }, 200);
     }
   };
 
