@@ -14,6 +14,8 @@ import VenueMap from './components/VenueMap';
 import AudioPlayer from './components/AudioPlayer';
 import WeddingClosing from './components/WeddingClosing';
 import CustomCursor from './components/CustomCursor';
+import ErrorBoundary from './components/ErrorBoundary';
+import { initPerformanceMonitoring } from './utils/performanceMonitoring';
 
 import './App.css';
 
@@ -23,6 +25,12 @@ function App() {
   const [isEntered, setIsEntered] = useState(false);
   const letterboxTopRef = useRef<HTMLDivElement>(null);
   const letterboxBottomRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Initialize performance monitoring
+    const unsubscribe = initPerformanceMonitoring();
+    return () => unsubscribe?.();
+  }, []);
 
   useEffect(() => {
     if (!isEntered) {
@@ -79,34 +87,36 @@ function App() {
 
     return () => {
       ctx.revert();
-      lenis.destroy();
-      gsap.ticker.remove((time) => lenis.raf(time * 1000));
-    };
-  }, []);
+     ErrorBoundary>
+      <>
+        <CustomCursor />
+        
+        {/* Noise Texture Overlay */}
+        <div className="noise-overlay"></div>
+        <svg style={{ display: 'none' }}>
+          <filter id="noiseFilter">
+            <feTurbulence type="fractalNoise" baseFrequency="0.6" numOctaves="3" stitchTiles="stitch" />
+          </filter>
+        </svg>
 
-  return (
-    <>
-      <CustomCursor />
-      
-      {/* Noise Texture Overlay */}
-      <div className="noise-overlay"></div>
-      <svg style={{ display: 'none' }}>
-        <filter id="noiseFilter">
-          <feTurbulence type="fractalNoise" baseFrequency="0.6" numOctaves="3" stitchTiles="stitch" />
-        </filter>
-      </svg>
+        {/* Cinematic Letterbox */}
+        <div ref={letterboxTopRef} className="cinematic-letterbox top"></div>
+        <div ref={letterboxBottomRef} className="cinematic-letterbox bottom"></div>
 
-      {/* Cinematic Letterbox */}
-      <div ref={letterboxTopRef} className="cinematic-letterbox top"></div>
-      <div ref={letterboxBottomRef} className="cinematic-letterbox bottom"></div>
-
-      <AudioPlayer play={isEntered} />
-      {!isEntered && <WelcomeGate onEnter={() => setIsEntered(true)} />}
-      <main className="main-content">
-        <HeroHeader />
-        <ScratchReveal />
-        <ProgramTimeline />
-        <DressCode />
+        <AudioPlayer play={isEntered} />
+        {!isEntered && <WelcomeGate onEnter={() => setIsEntered(true)} />}
+        <main className="main-content">
+          <HeroHeader />
+          <ScratchReveal />
+          <ProgramTimeline />
+          <DressCode />
+          <TravelGifts />
+          <PhotoGallery />
+          <VenueMap />
+          <WeddingClosing />
+        </main>
+      </>
+    </ErrorBoundary  <DressCode />
         <TravelGifts />
         <PhotoGallery />
         <VenueMap />

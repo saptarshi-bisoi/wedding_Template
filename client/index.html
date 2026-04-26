@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Join us as we celebrate the union of Vijay & Rashmika. Explore our wedding details, venue, timeline, and more." />
     <meta name="theme-color" content="#0f0f11" />
+    <meta name="keywords" content="wedding, invitation, Vijay, Rashmika, celebration" />
+    <meta name="author" content="ViRosh" />
     
     <!-- Open Graph Meta Tags for Social Sharing -->
     <meta property="og:title" content="Vijay & Rashmika's Wedding" />
@@ -22,9 +24,48 @@
     <meta name="twitter:description" content="Join us as we celebrate the union of Vijay & Rashmika. Explore our wedding details, venue, timeline, and more." />
     <meta name="twitter:image" content="https://wedding-template-client.vercel.app/images/virosh_logo.png" />
     
+    <!-- Preload critical resources -->
+    <link rel="preload" as="image" href="/images/virosh_logo.png" />
+    <link rel="preload" as="font" href="https://fonts.googleapis.com/css2?family=Passions+Conflict&display=swap" crossorigin />
+    
+    <!-- DNS prefetch for external resources -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500;1,600&family=Passions+Conflict&display=swap" rel="stylesheet">
+    
+    <!-- JSON-LD Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Event",
+      "name": "Vijay & Rashmika's Wedding",
+      "description": "Join us as we celebrate the union of Vijay & Rashmika",
+      "image": "https://wedding-template-client.vercel.app/images/virosh_logo.png",
+      "url": "https://wedding-template-client.vercel.app/",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://wedding-template-client.vercel.app/",
+        "price": "0"
+      }
+    }
+    </script>
+
+    <!-- Organization Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "ViRosh",
+      "url": "https://wedding-template-client.vercel.app/",
+      "logo": "https://wedding-template-client.vercel.app/images/virosh_logo.png",
+      "description": "A luxurious wedding invitation for Vijay & Rashmika"
+    }
+    </script>
     
     <title>Vijay & Rashmika | Wedding Invitation</title>
   </head>

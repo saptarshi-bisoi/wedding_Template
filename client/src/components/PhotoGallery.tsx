@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import OptimizedImage from './OptimizedImage';
 
 export default function PhotoGallery() {
   const [timeLeft, setTimeLeft] = useState({ days: 59, hours: 5, minutes: 23, seconds: 32 });
@@ -17,27 +18,29 @@ export default function PhotoGallery() {
     return () => clearInterval(timer);
   }, []);
 
+  const galleryImages = [
+    { src: '/images/sadhi01.jpg', alt: 'Wedding moment - Sadhi 01' },
+    { src: '/images/sadhi02.jpg', alt: 'Wedding moment - Sadhi 02' },
+    { src: '/images/sadhi03.jpg', alt: 'Wedding moment - Sadhi 03' },
+    { src: '/images/sadhi04.jpg', alt: 'Wedding moment - Sadhi 04' },
+    { src: '/images/haldi01.jpg', alt: 'Wedding moment - Haldi 01' },
+    { src: '/images/haldi02.jpg', alt: 'Wedding moment - Haldi 02' },
+    { src: '/images/sangetth01.jpg', alt: 'Wedding moment - Sangetth 01' },
+  ];
+
   return (
     <section className="section-container fade-up">
       
       <div className="gallery-grid fade-up" style={{ marginBottom: '60px' }}>
-        {[
-          '/images/sadhi01.jpg',
-          '/images/sadhi02.jpg', 
-          '/images/sadhi03.jpg',
-          '/images/sadhi04.jpg',
-          '/images/haldi01.jpg',
-          '/images/haldi02.jpg',
-          '/images/sangetth01.jpg'
-        ].map((imgSrc, index) => (
+        {galleryImages.map((image, index) => (
           <div key={index} className="gallery-wrapper">
-            <img 
-              src={imgSrc} 
-              alt={`Wedding moment ${index + 1}`} 
+            <OptimizedImage 
+              src={image.src}
+              alt={image.alt}
+              width={500}
+              height={500}
               className="gallery-img"
-              loading="lazy"
-              width="500"
-              height="500"
+              loading={index < 3 ? 'eager' : 'lazy'}
             />
           </div>
         ))}

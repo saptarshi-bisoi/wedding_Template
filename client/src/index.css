@@ -158,10 +158,45 @@ html.lenis {
   aspect-ratio: 1;
   transition: transform 0.5s ease;
   display: block;
+  /* Optimize for better performance */
+  contain: layout style paint;
+  will-change: transform;
 }
 
 .gallery-wrapper:hover .gallery-img {
   transform: scale(1.05);
+}
+
+/* Core Web Vitals Optimization */
+/* Prevent CLS from images */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Optimize text rendering */
+h1, h2, h3, h4, h5, h6 {
+  text-rendering: optimizeLegibility;
+  font-display: swap;
+}
+
+/* Reduce layout shifts */
+input, button, select, textarea {
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Optimize animations for performance */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 /* Mobile Responsiveness */
